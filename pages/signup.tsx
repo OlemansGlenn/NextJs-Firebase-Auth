@@ -1,7 +1,8 @@
-import { contains, FirebaseError } from '@firebase/util'
+import { FirebaseError } from '@firebase/util'
 import Router from 'next/router'
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
+import { Button, Form } from 'react-bootstrap'
 
 const Signup = () => {
   const { user, signup } = useAuth()
@@ -26,7 +27,6 @@ const Signup = () => {
 
     console.log(data)
   }
-
   return (
     <div
       style={{
@@ -35,9 +35,10 @@ const Signup = () => {
       }}
     >
       <h1 className="text-center my-3 ">Signup</h1>
-      <form onSubmit={handleSignup}>
-          <label>Email address</label>
-          <input
+      <Form onSubmit={handleSignup}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
             type="email"
             placeholder="Enter email"
             required
@@ -49,9 +50,11 @@ const Signup = () => {
             }
             value={data.email}
           />
-    
-          <label>Password</label>
-          <input
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
             type="password"
             placeholder="Password"
             required
@@ -63,11 +66,12 @@ const Signup = () => {
             }
             value={data.password}
           />
+        </Form.Group>
 
-        <button type="submit">
+        <Button variant="primary" type="submit">
           Signup
-        </button>
-      </form>
+        </Button>
+      </Form>
     </div>
   )
 }

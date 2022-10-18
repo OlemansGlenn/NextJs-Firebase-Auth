@@ -8,7 +8,7 @@ const dashboard = () =>{
         <>
             {user? (
                 <div>
-                    <h1>Welcome to your</h1>
+                    <h1>Welcome to your page</h1>
                 </div>
               ):<>
                <div>This is a protected route</div>
