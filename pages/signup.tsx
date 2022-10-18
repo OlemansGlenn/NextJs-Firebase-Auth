@@ -1,3 +1,5 @@
+import { contains, FirebaseError } from '@firebase/util'
+import Router from 'next/router'
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 
@@ -14,8 +16,12 @@ const Signup = () => {
 
     try {
       await signup(data.email, data.password)
+      Router.push('/dashboard')
     } catch (err) {
       console.log(err)
+      if(FirebaseError){
+        Router.push('/login')
+      }
     }
 
     console.log(data)
