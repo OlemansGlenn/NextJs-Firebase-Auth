@@ -7,7 +7,10 @@ const dashboard = () =>{
     return (
         <>
             {user? (
-                <div>
+                <div  style={{
+                    margin: 'auto',
+                    textAlign: 'center',
+                   }}>
                     <h1>Welcome to your page</h1>
                 </div>
               ):<>
