@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from '../context/AuthContext'
 
-const dashboard = () =>{
+function Dashboard() {
     const { user } = useAuth()
 
     return (
@@ -19,4 +19,4 @@ const dashboard = () =>{
          </>)
 }
 
-export default dashboard
+export default Dashboard
